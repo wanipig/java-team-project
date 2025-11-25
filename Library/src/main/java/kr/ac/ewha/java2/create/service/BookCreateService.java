@@ -2,7 +2,8 @@ package kr.ac.ewha.java2.create.service;
 
 import kr.ac.ewha.java2.domain.Book;
 import kr.ac.ewha.java2.create.dto.BookCreateRequest;
-import java.util.List;
+import kr.ac.ewha.java2.create.exception.DuplicateIsbnException;
+import kr.ac.ewha.java2.create.exception.InvalidStockException;
 
 import org.springframework.stereotype.Service;
 
@@ -16,7 +17,15 @@ public class BookCreateService {
 		this.repository = repository;
 	}
 
-	public Book create(Book book) {
-		return repository.save(book);
+	public Book create(BookCreateRequest request) {
+		if(request.getCount()<=0) {
+			throw new InvalidStockException();
+		}
+		if(repository.existsById(request.getISBN())) {
+			throw new DuplicateIsbnException(request.getISBN());
+		}
+		
+		Book bookToSave = request.toEntity();
+		return repository.save(bookToSave);
 	}
 }

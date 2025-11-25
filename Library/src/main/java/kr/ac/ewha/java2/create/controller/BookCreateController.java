@@ -32,7 +32,14 @@ public class BookCreateController {
 			@RequestParam("publisher") String publisher,
 			@RequestParam("count") int count,
 			@RequestParam("author") String author) {
-		service.create(new Book(ISBN, title, publisher, count, author));
+		BookCreateRequest request = new BookCreateRequest();
+		request.setISBN(ISBN);
+		request.setTitle(title);
+		request.setPublisher(publisher);
+		request.setCount(count);
+		request.setAuthor(author);
+		
+		service.create(request);
 		
 		return "<h3>도서 등록 완료</h3><a href='/book-crud.html'>돌아가기</a>\"";
 	}
