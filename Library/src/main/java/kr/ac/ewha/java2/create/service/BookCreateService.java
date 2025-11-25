@@ -16,9 +16,7 @@ public class BookCreateService {
 		this.repository = repository;
 	}
 
-	//DTO를 입력받고 Book 엔티티를 반환하도록 수정
-	public Book create(BookCreateRequest request) {
-		Book bookToSave = request.toEntity();
-		return repository.save(bookToSave);
+	public Book create(Book book) {
+		return repository.save(book);
 	}
 }
