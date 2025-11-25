@@ -16,7 +16,6 @@ public class Book {
 	//생성자와 getter, setter
 	public Book() {}
 	public Book(String iSBN, String title, String publisher, int count, String author) {
-		super();
 		ISBN = iSBN;
 		this.title = title;
 		this.publisher = publisher;
