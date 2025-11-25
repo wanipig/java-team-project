@@ -1,5 +1,39 @@
 package kr.ac.ewha.java2.read;
 
-public class BookResponse {
+import kr.ac.ewha.java2.domain.Book;
 
+package com.example.library.read.dto;
+
+public class BookResponse {
+    private String isbn;
+    private String title;
+    private String publisher;
+    private int count;
+    private String author;
+
+    public BookResponse(String isbn, String title, String publisher, int count, String author) {
+        this.isbn = isbn;
+        this.title = title;
+        this.publisher = publisher;
+        this.count = count;
+        this.author = author;
+    }
+    
+    public static BookResponse fromEntity(Book book) {
+        return new BookResponse(
+            book.getIsbn(),
+            book.getTitle(),
+            book.getPublisher(),
+            book.getCount(),
+            book.getAuthor()
+        );
+    }
+
+    // Getter
+    public String getIsbn() { return isbn; }
+    public String getTitle() { return title; }
+    public String getPublisher() { return publisher; }
+    public int getCount() { return count; }
+    public String getAuthor() { return author; }
 }
+
