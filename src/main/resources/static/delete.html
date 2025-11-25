@@ -1,0 +1,22 @@
+<html smlns:th="http://www.thymeleaf.org" lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<title>도서 삭제</title>
+</head>
+<body>
+	<h1>도서 삭제</h1>
+	<form method="post" action="/books/delete">
+		<div>
+			<label>삭제할 도서의 ID 또는 ISBN</label>
+			<input type="text" name="key">
+		</div>
+		<div>
+			<button type="submit">삭제</button>
+		</div>
+	</form>
+   
+	<p>
+		<a href="/">메인으로</a>
+	</p>
+</body>
+</html>
