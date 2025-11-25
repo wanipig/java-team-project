@@ -1,4 +1,4 @@
-package kr.ac.ewha.java2.entity;
+package kr.ac.ewha.java2.domain;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
