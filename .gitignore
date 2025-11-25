@@ -1,0 +1,13 @@
+# Gradle build
+/build/
+bin/
+
+# IDE settings
+/.idea/
+/.project
+/.classpath
+/.settings/
+
+# OS files
+*.log
+*.tmp
