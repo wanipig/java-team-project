@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Gradle build
 /build/
 bin/
@@ -11,3 +12,6 @@ bin/
 # OS files
 *.log
 *.tmp
+=======
+/.metadata/
+>>>>>>> 971e8f31a59709caac29e6ebf5a5b13ce54dfc50
