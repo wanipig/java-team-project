@@ -14,11 +14,11 @@ public class BookDeleteService {
 	
 	
 	//Delete
-	public Boolean delete(String id) {
-		if(!repository.existsById(id)) { // 존재여부 체크
+	public Boolean delete(String isbn) {
+		if(!repository.existsById(isbn)) { // 존재여부 체크
 			return false;
 		}
-		repository.deleteById(id); // 사용자 삭제
+		repository.deleteById(isbn);
 		return true; // 삭제 완료시 true리턴
 	}
 }

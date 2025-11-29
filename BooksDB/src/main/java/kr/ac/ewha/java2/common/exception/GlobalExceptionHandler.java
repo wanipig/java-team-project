@@ -17,7 +17,7 @@ public class GlobalExceptionHandler {
         ErrorResponse error = new ErrorResponse("FRM-E-001", "시스템 오류가 발생했습니다: " + ex.getMessage());
         return new ResponseEntity<>(error, HttpStatus.INTERNAL_SERVER_ERROR);
     }
-	
+    
 	//ISBN 중복 확인
 	@ExceptionHandler(DuplicateIsbnException.class)
 	public ResponseEntity<ErrorResponse> handleDuplicateIsbnException(DuplicateIsbnException e){

@@ -3,18 +3,18 @@ package kr.ac.ewha.java2.create.dto;
 import kr.ac.ewha.java2.domain.Book;
 
 public class BookCreateRequest {
-	private String ISBN;
+	private String isbn;
 	private String title;
 	private String publisher;
 	private int count;
 	private String author;
 	
 	//생성자와 getter, setter
-	public String getISBN() {
-		return ISBN;
+	public String getIsbn() {
+		return isbn;
 	}
-	public void setISBN(String iSBN) {
-		ISBN = iSBN;
+	public void setIsbn(String isbn) {
+		this.isbn = isbn;
 	}
 	public String getTitle() {
 		return title;
@@ -42,6 +42,6 @@ public class BookCreateRequest {
 	}
 	
 	public Book toEntity() {
-		return new Book(ISBN, title, publisher, count, author);
+		return new Book(isbn, title, publisher, count, author);
 	}
 }

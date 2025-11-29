@@ -1,5 +1,6 @@
 package kr.ac.ewha.java2.domain;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
@@ -9,7 +10,8 @@ import jakarta.persistence.Table;
 public class Book {
 	
 	@Id //ISBN 필드를 테이블의 고유 식별자로 지정- 기본 키
-	private String ISBN;
+	@Column(name = "ISBN") //JPA의 findByIsbn과 충돌하지 않기 위함
+	private String isbn;
 	private String title;
 	private String publisher;
 	private int count;
@@ -17,8 +19,8 @@ public class Book {
 	
 	//생성자
 	public Book() {}
-	public Book(String ISBN, String title, String publisher, int count, String author) {
-		ISBN = ISBN;
+	public Book(String isbn, String title, String publisher, int count, String author) {
+		this.isbn = isbn;
 		this.title = title;
 		this.publisher = publisher;
 		this.count = count;
@@ -26,11 +28,11 @@ public class Book {
 	}
 	
 	//getter, setter
-	public String getISBN() {
-		return ISBN;
+	public String getIsbn() {
+		return isbn;
 	}
-	public void setISBN(String ISBN) {
-		ISBN = ISBN;
+	public void setIsbn(String isbn) {
+		this.isbn = isbn;
 	}
 	public String getTitle() {
 		return title;

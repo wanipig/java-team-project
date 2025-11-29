@@ -22,8 +22,8 @@ public class BookCreateService {
 		if(request.getCount()<=0) { //책 수량이 0 이하면 exception!
 			throw new InvalidStockException();
 		}
-		if(repository.existsById(request.getISBN())) { //ISBN 중복되면 exception!
-			throw new DuplicateIsbnException(request.getISBN());
+		if(repository.findById(request.getIsbn()).isPresent()) { //ISBN 중복되면 exception!
+			throw new DuplicateIsbnException(request.getIsbn());
 		}
 		
 		Book bookToSave = request.toEntity(); //DTO를 DB에 저장할 수 있는 JPA 엔티티 객체로 반환
