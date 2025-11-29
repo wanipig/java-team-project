@@ -9,23 +9,24 @@ import org.springframework.stereotype.Service;
 
 import kr.ac.ewha.java2.repository.BookRepository;
 
-@Service
+@Service //비즈니스 로직 담당
 public class BookCreateService {
-	private final BookRepository repository;
+	private final BookRepository repository; //repository 주입 후(의존성 주입) CRUD 로직 구현
 	
 	public BookCreateService(BookRepository repository) {
 		this.repository = repository;
 	}
 
+	//책 create하고 저장
 	public Book create(BookCreateRequest request) {
-		if(request.getCount()<=0) {
+		if(request.getCount()<=0) { //책 수량이 0 이하면 exception!
 			throw new InvalidStockException();
 		}
-		if(repository.existsById(request.getISBN())) {
+		if(repository.existsById(request.getISBN())) { //ISBN 중복되면 exception!
 			throw new DuplicateIsbnException(request.getISBN());
 		}
 		
-		Book bookToSave = request.toEntity();
-		return repository.save(bookToSave);
+		Book bookToSave = request.toEntity(); //DTO를 DB에 저장할 수 있는 JPA 엔티티 객체로 반환
+		return repository.save(bookToSave); //DB에 저장
 	}
 }

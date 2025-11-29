@@ -2,18 +2,20 @@ package kr.ac.ewha.java2.domain;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
-@Entity
+@Entity //이 클래스를 JPA 관리 객체로 지정- 테이블
+@Table(name = "books") //실제 데이터 베이스 테이블 이름과 동일하게 지정
 public class Book {
 	
-	@Id
+	@Id //ISBN 필드를 테이블의 고유 식별자로 지정- 기본 키
 	private String ISBN;
 	private String title;
 	private String publisher;
 	private int count;
 	private String author;
 	
-	//생성자와 getter, setter
+	//생성자
 	public Book() {}
 	public Book(String iSBN, String title, String publisher, int count, String author) {
 		ISBN = iSBN;
@@ -23,6 +25,7 @@ public class Book {
 		this.author = author;
 	}
 	
+	//getter, setter
 	public String getISBN() {
 		return ISBN;
 	}
@@ -53,7 +56,5 @@ public class Book {
 	public void setAuthor(String author) {
 		this.author = author;
 	}
-	
-	
 	
 }
