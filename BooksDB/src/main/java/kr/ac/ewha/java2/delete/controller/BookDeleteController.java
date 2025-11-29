@@ -1,0 +1,33 @@
+package kr.ac.ewha.java2.delete.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import kr.ac.ewha.java2.delete.service.BookDeleteService;
+
+@Controller
+@RequestMapping("/books")
+public class BookDeleteController {
+	// 비즈니스 로직처리 서비스 객체
+		private final BookDeleteService service;
+		// 생성자
+		public BookDeleteController(BookDeleteService service) {
+			this.service= service;
+		}
+		
+			// DELETE 책 삭제 -> ID로 삭제 하기
+		@PostMapping("/delete") // POST 요청 "/user/deleteForm" 처리
+		@ResponseBody
+		public String delete(@RequestParam("isbn") String isbn) {
+			boolean success = service.delete(isbn); // 아직 userService 구현 못 해서 빨간
+			if(!success) {
+				// 실패시 메시지 띄우기
+				return "<h3>삭제 실패: 사용자를 찾을 수 없습니다.</h3><a href='/user-crud.html'>돌아가기</a>";
+			}
+			// 성공 시 메시지 띄우기
+			return "<h3>삭제 완료</h3><a href='/user/list'>전체 목록 보기</a>";
+		}
+}
