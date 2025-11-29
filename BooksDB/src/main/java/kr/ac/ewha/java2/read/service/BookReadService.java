@@ -5,6 +5,7 @@ import kr.ac.ewha.java2.repository.BookRepository;
 import kr.ac.ewha.java2.read.dto.BookResponse;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -29,8 +30,11 @@ public class BookReadService {
     public List<BookResponse> searchBooks(String keyword) {
         List<Book> byTitle = bookRepository.findByTitleContaining(keyword);
         List<Book> byAuthor = bookRepository.findByAuthorContaining(keyword);
-
-        return byTitle.stream()
+        
+        List<Book> combined = new ArrayList<> (byTitle);
+        combined.addAll(byAuthor);
+        
+        return combined.stream()
                 .distinct()
                 .collect(Collectors.toList())
                 .stream()

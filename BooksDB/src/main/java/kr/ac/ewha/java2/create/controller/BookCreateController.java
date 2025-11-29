@@ -1,6 +1,7 @@
 package kr.ac.ewha.java2.create.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -16,11 +17,16 @@ public class BookCreateController {
 		this.service = service;
 	}
 	
-	@PostMapping("/submitForm")
-	@ResponseBody //HTTP 응답의 본문으로 클라이언트에게 직접 전송 지시
+	@GetMapping("/new") //이 경로가 index.html의 /books/new 요청을 받음
+    public String showCreateForm() {
+        // 이 메서드는 templates 폴더 내의 create.html 템플릿 파일을 반환
+        return "create"; 
+    }
+	
+	@PostMapping
 	public String create(BookCreateRequest request) {
 		service.create(request); //service에게 request 객체 전달하고 DB 저장 작업 위임
 		
-		return "<h3>도서 등록 완료</h3><a href='/book-index.html'>돌아가기</a>\"";
+		return "redirect:/books";
 	}
 }

@@ -1,4 +1,4 @@
-<html xmlns:th="https://www.thmeleaf.org" lang="ko">
+<html xmlns:th="http://www.thymeleaf.org" lang="ko">
 <head>
 	<meta charset="UTF-8">
 	<title>도서 목록</title>
@@ -9,20 +9,20 @@
 	<table border="1">
 		<thread>
 		<tr>
-			<th>ID</th>
 			<th>ISBN</th>
 			<th>제목</th>
-			<th>저자</th>
+			<th>출판사</th>
 			<th>재고</th>
+			<th>저자</th>
 		</tr>
 		</thread>
 		<tbody>
 		<tr th:each="book : ${books}">
-			<td th:text="${book.id}"></td>
 			<td th:text="${book.isbn}"></td>
 			<td th:text="${book.title}"></td>
+			<td th:text="${book.publisher}"></td>
+			<td th:text="${book.count}"></td>
 			<td th:text="${book.author}"></td>
-			<td th:text="${book.stock}"></td>
 		</tr>
 		<tr th:if="${#lists.isEmpty(books)}">
 			<td colspan="5">등록된 도서가 없습니다.</td>
@@ -31,7 +31,7 @@
 	</table>
       
 	<p>
-		<a th:href="@{/}">메인으로</a>
+		<a href="/">메인으로</a>
 	</p>
 </body>
 </html>
