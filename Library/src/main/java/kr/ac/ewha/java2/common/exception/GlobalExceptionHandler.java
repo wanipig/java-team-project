@@ -9,7 +9,7 @@ import kr.ac.ewha.java2.create.exception.DuplicateIsbnException;
 import kr.ac.ewha.java2.create.exception.InvalidStockException;
 
 @RestControllerAdvice //모든 컨트롤러에서 발생하는 예외를 여기서 처리하도록 지정
-public class GlobalExceptionHanlder {
+public class GlobalExceptionHandler {
 	//ISBN 중복 확인
 	@ExceptionHandler(DuplicateIsbnException.class)
 	public ResponseEntity<ErrorResponse> handleDuplicateIsbnException(DuplicateIsbnException e){
