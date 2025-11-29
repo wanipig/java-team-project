@@ -11,7 +11,7 @@ import java.util.Optional;
 @Repository //DAO 구현 끝
 public interface BookRepository extends JpaRepository<Book, String>{
 	//JPARepository<엔티티 타입, 기본 키(ISBN) 타입>
-	 Optional<Book> findByIsbn(String isbn);
+	 Optional<Book> findByISBN(String ISBN);
 	 List<Book> findByTitleContaining(String keyword);
 	 List<Book> findByAuthorContaining(String keyword);
 }

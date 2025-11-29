@@ -17,8 +17,8 @@ public class Book {
 	
 	//생성자
 	public Book() {}
-	public Book(String iSBN, String title, String publisher, int count, String author) {
-		ISBN = iSBN;
+	public Book(String ISBN, String title, String publisher, int count, String author) {
+		ISBN = ISBN;
 		this.title = title;
 		this.publisher = publisher;
 		this.count = count;
@@ -29,8 +29,8 @@ public class Book {
 	public String getISBN() {
 		return ISBN;
 	}
-	public void setISBN(String iSBN) {
-		ISBN = iSBN;
+	public void setISBN(String ISBN) {
+		ISBN = ISBN;
 	}
 	public String getTitle() {
 		return title;

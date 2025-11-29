@@ -2,14 +2,14 @@ package kr.ac.ewha.java2.read.dto;
 import kr.ac.ewha.java2.domain.Book;
 
 public class BookResponse {
-    private String isbn;
+    private String ISBN;
     private String title;
     private String publisher;
     private int count;
     private String author;
 
-    public BookResponse(String isbn, String title, String publisher, int count, String author) {
-        this.isbn = isbn;
+    public BookResponse(String ISBN, String title, String publisher, int count, String author) {
+        this.ISBN = ISBN;
         this.title = title;
         this.publisher = publisher;
         this.count = count;
@@ -26,7 +26,7 @@ public class BookResponse {
     }
     
  // Getter
-    public String getISBN() { return isbn; }
+    public String getISBN() { return ISBN; }
     public String getTitle() { return title; }
     public String getPublisher() { return publisher; }
     public int getCount() { return count; }

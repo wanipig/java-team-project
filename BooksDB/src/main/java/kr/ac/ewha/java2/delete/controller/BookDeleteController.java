@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import kr.ac.ewha.java2.delete.service.BookDeleteService;
 
 @Controller
-@RequestMapping("/user") // 모든 경로 요청 앞에 "/user" 붙임
+@RequestMapping("/books")
 public class BookDeleteController {
 	// 비즈니스 로직처리 서브스 객체
 		private final BookDeleteService service;

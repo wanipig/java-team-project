@@ -1,6 +1,5 @@
 package kr.ac.ewha.java2.delete.service;
 
-import java.util.List;
 import org.springframework.stereotype.Service;
 
 import kr.ac.ewha.java2.repository.BookRepository;
