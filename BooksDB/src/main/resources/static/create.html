@@ -1,0 +1,36 @@
+<html>
+	<head>
+		<meta charset = "UTF-8">
+		<title>도서 등록</title>
+	</head>
+	<body>
+		<h1>도서 등록</h1>
+      
+		<form method="post" action="/books">
+			<div>
+				<label>ISBN</label>
+            	<input type="text" name="isbn">
+			</div>
+			<div>
+				<label>제목</label>
+				<input type="text" name="title">
+			</div>
+			<div>
+				<label>저자</label>
+				<input type="text" name="author">
+			</div>
+			<div>
+				<label>재고 수량</label>
+				<input type="number" name="stock" min="0">
+			</div>
+         
+			<div>
+				<button type="submit">등록</button>
+			</div>
+		</form>
+      
+	<p>
+		<a href="/">메인으로</a>
+	</p>
+	</body>
+</html>
