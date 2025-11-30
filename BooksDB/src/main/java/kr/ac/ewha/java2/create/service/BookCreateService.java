@@ -22,7 +22,7 @@ public class BookCreateService {
 		if(request.getCount()<=0) { //책 수량이 0 이하면 exception!
 			throw new InvalidStockException();
 		}
-		if(repository.findById(request.getIsbn()).isPresent()) { //ISBN 중복되면 exception!
+		if(repository.existsById(request.getIsbn())) { //ISBN 중복되면 exception!
 			throw new DuplicateIsbnException(request.getIsbn());
 		}
 		
