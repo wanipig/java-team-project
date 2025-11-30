@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("/")
 public class MainController {
-	@GetMapping("/") 
+	@GetMapping
     public String showIndex() {
         return "index"; // templates/index.html 파일을 찾아 반환합니다.
     }
