@@ -22,6 +22,9 @@ public class BookReadController {
     @GetMapping
     public String getAllBooks(Model model) {
         List<BookResponse> books = bookReadService.getAllBooks();
+        if (books.isEmpty()) {
+            System.out.println("DEBUG: 조회된 책 데이터가 비어 있습니다.");
+        }
         model.addAttribute("books", books);
         return "list"; // templates/list.html
     }
