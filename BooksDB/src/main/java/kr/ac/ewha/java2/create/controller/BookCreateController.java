@@ -28,4 +28,10 @@ public class BookCreateController {
 		
 		return "redirect:/books";
 	}
+	
+	@GetMapping("/list-page")
+    public String list() {
+        return "list";
+    }
+	
 }

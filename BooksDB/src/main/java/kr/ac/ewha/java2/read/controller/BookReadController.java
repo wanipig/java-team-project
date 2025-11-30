@@ -17,32 +17,33 @@ public class BookReadController {
     public BookReadController(BookReadService bookReadService) {
         this.bookReadService = bookReadService;
     }
-    
-    @GetMapping("/") 
-    public String showIndex() {
-        return "index";
-    }
 
     // 전체 조회
     @GetMapping
     public String getAllBooks(Model model) {
         List<BookResponse> books = bookReadService.getAllBooks();
-        if (books.isEmpty()) {
-            System.out.println("DEBUG: 조회된 책 데이터가 비어 있습니다.");
-        }
         model.addAttribute("books", books);
         return "list"; // templates/list.html
     }
 
-    // 검색 조회
+    // 검색 조회 + 초기 진입 시 전체 목록
     @GetMapping("/search")
-    public String searchBooks(@RequestParam(name = "keyword", required = false) String keyword, Model model) {
-        List<BookResponse> books = bookReadService.searchBooks(keyword);
+    public String searchBooks(
+            @RequestParam(value = "keyword", required = false) String keyword,
+            Model model) {
+
+        List<BookResponse> books;
+
+        if (keyword == null || keyword.isBlank()) {
+            books = bookReadService.getAllBooks();
+            keyword = "";
+        } else {
+            books = bookReadService.searchBooks(keyword);
+        }
+
         model.addAttribute("books", books);
         model.addAttribute("keyword", keyword);
-        
-        return "search"; // templates/search.html
-        
+        return "search";
     }
 
 }

@@ -35,7 +35,9 @@ public class BookReadService {
         combined.addAll(byAuthor);
         
         return combined.stream()
-                .distinct()
+        		.distinct()
+                .collect(Collectors.toList())
+                .stream()
                 .map(BookResponse::fromEntity)
                 .collect(Collectors.toList());
     }
