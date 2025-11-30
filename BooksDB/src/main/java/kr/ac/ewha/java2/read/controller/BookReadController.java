@@ -17,6 +17,11 @@ public class BookReadController {
     public BookReadController(BookReadService bookReadService) {
         this.bookReadService = bookReadService;
     }
+    
+    @GetMapping("/") 
+    public String showIndex() {
+        return "index";
+    }
 
     // 전체 조회
     @GetMapping
