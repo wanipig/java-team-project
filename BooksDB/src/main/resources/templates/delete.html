@@ -1,4 +1,4 @@
-<html smlns:th="http://www.thymeleaf.org" lang="ko">
+<html xmlns:th="http://www.thymeleaf.org" lang="ko">
 <head>
 	<meta charset="UTF-8">
 	<title>도서 삭제</title>
@@ -8,7 +8,7 @@
 	<form method="post" action="/books/delete">
 		<div>
 			<label>삭제할 도서의 ISBN</label>
-			<input type="text" name="key">
+			<input type="text" name="isbn">
 		</div>
 		<div>
 			<button type="submit">삭제</button>

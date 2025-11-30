@@ -19,7 +19,7 @@ public class BookDeleteController {
 		}
 		
 			// DELETE 책 삭제 -> ID로 삭제 하기
-		@PostMapping("/delete") // POST 요청 "/user/deleteForm" 처리
+		@PostMapping("/delete") // POST 요청 "/user/delete" 처리
 		@ResponseBody
 		public String delete(@RequestParam("isbn") String isbn) {
 			boolean success = service.delete(isbn); // 아직 userService 구현 못 해서 빨간

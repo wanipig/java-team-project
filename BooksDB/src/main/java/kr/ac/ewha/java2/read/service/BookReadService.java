@@ -36,8 +36,6 @@ public class BookReadService {
         
         return combined.stream()
                 .distinct()
-                .collect(Collectors.toList())
-                .stream()
                 .map(BookResponse::fromEntity)
                 .collect(Collectors.toList());
     }

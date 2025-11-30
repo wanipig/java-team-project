@@ -15,7 +15,7 @@
    
 	<h2>검색 결과</h2>
 	<table border="1">
-		<thread>
+		<thead>
 		<tr>
 			<th>ISBN</th>
 			<th>제목</th>
@@ -23,7 +23,7 @@
 			<th>재고</th>
 			<th>저자</th>
 		</tr>
-		</thread>
+		</thead>
 		<tbody>
 		<tr th:each="book : ${books}">
 			<td th:text="${book.isbn}">9...</td>
