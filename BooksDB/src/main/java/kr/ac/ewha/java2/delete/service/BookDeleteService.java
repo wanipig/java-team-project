@@ -15,11 +15,10 @@ public class BookDeleteService {
 	
 	
 	//Delete
-	public Boolean delete(String isbn) {
+	public void delete(String isbn) {
 		if(!repository.existsById(isbn)) { // 존재여부 체크
 			throw new BookNotFoundException("ISBN +[" + isbn + "]에 해당하는 도서를 찾을 수 없습니다.");
 		}
 		repository.deleteById(isbn);
-		return true; // 삭제 완료시 true리턴
 	}
 }

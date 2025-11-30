@@ -25,7 +25,7 @@ public class BookResponse {
         );
     }
     
- // Getter
+    // Getter
     public String getIsbn() { return isbn; }
     public String getTitle() { return title; }
     public String getPublisher() { return publisher; }

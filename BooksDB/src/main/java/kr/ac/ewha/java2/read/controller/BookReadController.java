@@ -31,11 +31,13 @@ public class BookReadController {
 
     // 검색 조회
     @GetMapping("/search")
-    public String searchBooks(@RequestParam("keyword") String keyword, Model model) {
+    public String searchBooks(@RequestParam(name = "keyword", required = false) String keyword, Model model) {
         List<BookResponse> books = bookReadService.searchBooks(keyword);
         model.addAttribute("books", books);
         model.addAttribute("keyword", keyword);
+        
         return "search"; // templates/search.html
+        
     }
 
 }
