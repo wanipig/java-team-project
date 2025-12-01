@@ -6,8 +6,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
-
 import kr.ac.ewha.java2.delete.service.BookDeleteService;
 
 @Controller
@@ -24,17 +22,13 @@ public class BookDeleteController {
 		@GetMapping("/delete")
 	    public String showDeleteForm(Model model) {
 			model.addAttribute("targetIsbn", "");
-	        return "delete";
+	        return "delete_form";
 	    }
 		
 		//2) 실제 삭제 처리(POST)
 		@PostMapping("/delete")
-		@ResponseBody
 		public String delete(@RequestParam("isbn") String isbn) {
-			boolean success = service.delete(isbn);
-			if (!success) {
-	            return "<h3>삭제 실패: 도서를 찾을 수 없습니다.</h3><a href='/books'>전체 목록 보기</a>";
-	        }
-	        return "<h3>삭제 완료</h3><a href='/books'>전체 목록 보기</a>";
+			service.delete(isbn);
+	        return "redirect:/books";
 		}
 }

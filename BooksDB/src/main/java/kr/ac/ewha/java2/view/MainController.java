@@ -9,6 +9,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class MainController {
 	@GetMapping
     public String showIndex() {
-        return "index"; // templates/index.html 파일을 찾아 반환합니다.
+        return "index_form"; // templates/index_form.html 파일을 찾아 반환합니다.
     }
 }
