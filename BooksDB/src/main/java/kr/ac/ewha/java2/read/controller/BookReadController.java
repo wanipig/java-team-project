@@ -43,7 +43,7 @@ public class BookReadController {
 
         model.addAttribute("books", books);
         model.addAttribute("keyword", keyword);
-        return "search_form";
+        return "search";
     }
 
 }

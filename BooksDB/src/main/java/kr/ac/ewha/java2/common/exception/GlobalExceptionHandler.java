@@ -33,11 +33,11 @@ public class GlobalExceptionHandler {
         return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
     }
   
- // 도서 없음
+    /*// 도서 없음
     @ExceptionHandler(kr.ac.ewha.java2.delete.exception.BookNotFoundException.class)
     public ResponseEntity<ErrorResponse> handleBookNotFound(Exception ex) {
         ErrorResponse error = new ErrorResponse("FRM-E-002", ex.getMessage());
         return new ResponseEntity<>(error, HttpStatus.NOT_FOUND);
-    }
+    }*/
     
 }

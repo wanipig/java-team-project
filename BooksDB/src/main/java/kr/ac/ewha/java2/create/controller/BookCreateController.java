@@ -19,7 +19,7 @@ public class BookCreateController {
 	@GetMapping("/new") //이 경로가 index.html의 /books/new 요청을 받음
     public String showCreateForm() {
         // 이 메서드는 templates 폴더 내의 create.html 템플릿 파일을 반환
-        return "create_form"; 
+        return "create"; 
     }
 	
 	@PostMapping
@@ -29,9 +29,9 @@ public class BookCreateController {
 		return "redirect:/books";
 	}
 	
-	@GetMapping("/list")
+	@GetMapping("/list-page")
     public String list() {
-        return "list_form";
+        return "list";
     }
 	
 }

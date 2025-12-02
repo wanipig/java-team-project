@@ -1,6 +1,7 @@
 package kr.ac.ewha.java2.delete.exception;
 
 public class BookNotFoundException extends RuntimeException{
+	/*
 	// 1. 기본 생성자
     public BookNotFoundException() {
         super("책을 찾을 수 없습니다."); // 기본 메시지 설정
@@ -20,4 +21,5 @@ public class BookNotFoundException extends RuntimeException{
     public BookNotFoundException(Throwable cause) {
         super(cause);
     }
+    */
 }
